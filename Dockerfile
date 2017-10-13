@@ -19,8 +19,7 @@ RUN apt-get update && \
         libfreetype6-dev \
         libssl-dev \
         libmcrypt-dev \
-        git-ftp \
-        ruby-full
+        git-ftp
 
 # Install the PHP mcrypt extention
 RUN docker-php-ext-install mcrypt
