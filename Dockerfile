@@ -21,11 +21,8 @@ RUN apt-get update && \
         libmcrypt-dev \
         git-ftp
 
-# Install the PHP mcrypt extention
-RUN docker-php-ext-install mcrypt
-
-# Install the PHP pdo_mysql extention
-RUN docker-php-ext-install pdo_mysql
+# Install the PHP extentions
+RUN docker-php-ext-install mcrypt pdo_mysql zip
 
 
 # Install the PHP gd library
