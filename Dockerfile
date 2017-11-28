@@ -35,6 +35,9 @@ RUN docker-php-ext-configure gd \
 # Install ZIP
 # RUN pecl install zip && docker-php-ext-enable zip
 
+# Install Xdebug
+RUN pecl install xdebug-2.5.5 && docker-php-ext-enable xdebug
+
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
