@@ -23,7 +23,7 @@ RUN apt-get update && \
         git-ftp
 
 # Install the PHP extentions
-RUN docker-php-ext-install mcrypt pdo_mysql zip
+RUN docker-php-ext-install mcrypt pdo_mysql zip mongodb
 
 
 # Install the PHP gd library
