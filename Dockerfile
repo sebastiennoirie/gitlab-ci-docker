@@ -34,7 +34,7 @@ RUN apt-get update && \
         git-ftp
 
 # Install the PHP extentions
-RUN docker-php-ext-install mcrypt pdo_mysql zip mongodb
+RUN docker-php-ext-install mcrypt pdo_mysql zip
 
 
 # Install the PHP gd library
@@ -49,6 +49,9 @@ RUN docker-php-ext-configure gd \
 
 # Install Xdebug
 RUN pecl install xdebug-2.5.5 && docker-php-ext-enable xdebug
+
+# Install Mongodb
+RUN pecl install mongodb && docker-php-ext-enable mongodb
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php
