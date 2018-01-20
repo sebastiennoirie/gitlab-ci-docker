@@ -8,6 +8,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         git \
         curl \
+        apt-get install apt-transport-https \
         mysql-client \
         nodejs \
         nodejs-legacy \
