@@ -13,7 +13,7 @@ RUN apt-get update && \
     apt-get install -y \
         git \
         curl \
-        mysql-client \
+#        mysql-client \
         nodejs \
         nodejs-legacy \
         npm \
@@ -27,7 +27,7 @@ RUN apt-get update && \
         libjpeg-dev \
         libpng12-dev \
         libfreetype6-dev \
-        libssl-dev \
+#        libssl-dev \
         libmcrypt-dev \
         git-ftp
 
