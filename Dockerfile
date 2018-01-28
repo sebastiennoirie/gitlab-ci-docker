@@ -57,6 +57,14 @@ RUN pecl install mongodb && docker-php-ext-enable mongodb
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
+# Install PHP Code sniffer
+RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+RUN mv phpcs.phar /usr/local/bin/phpcs
+
+# Install PHP Lint
+RUN curl -OL https://raw.githubusercontent.com/overtrue/phplint/master/bin/phplint
+RUN mv phplint /usr/local/bin/phplint
+
 # Update nodejs to stable version
 RUN npm cache clean -f
 RUN npm install -g n
