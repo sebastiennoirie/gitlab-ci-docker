@@ -47,6 +47,10 @@ RUN docker-php-ext-configure gd \
 # Install ZIP
 # RUN pecl install zip && docker-php-ext-enable zip
 
+
+# Install exif
+RUN pecl install exif && docker-php-ext-enable exif
+
 # Install Xdebug
 RUN pecl install xdebug-2.5.5 && docker-php-ext-enable xdebug
 
