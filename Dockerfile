@@ -4,7 +4,8 @@ MAINTAINER Sébastien NOIRIE
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        apt-transport-https
+        apt-transport-https \
+        gnupg
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
 
