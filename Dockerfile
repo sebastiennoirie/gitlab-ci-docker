@@ -15,14 +15,13 @@ RUN echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.6 main" | 
 
 RUN apt-get update && \
     apt-get install -y \
-#        mysql-client \
         npm \
         openssh-client \
         curl \
         nodejs \
         nodejs-legacy \
         git \
-        libssl1.0.0 \
+#        libssl1.0.0 \
         mongodb-org-shell \
         rsync \
         build-essential \
@@ -30,7 +29,7 @@ RUN apt-get update && \
         libz-dev \
         libpq-dev \
         libjpeg-dev \
-        libpng12-dev \
+#        libpng12-dev \
         libfreetype6-dev \
         libssl-dev \
         libmcrypt-dev \
