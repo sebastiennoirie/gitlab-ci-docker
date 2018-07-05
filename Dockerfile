@@ -13,12 +13,12 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75
 
 RUN echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.6 main" | tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
 RUN apt-get install -y nodejs
 
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install -y --force-yes \
 #        npm \
         openssh-client \
         curl \
@@ -55,7 +55,7 @@ RUN docker-php-ext-configure gd \
 
 
 # Install exif
-RUN pecl install exif && docker-php-ext-enable exif
+#RUN pecl install exif && docker-php-ext-enable exif
 
 # Install Xdebug
 RUN pecl install xdebug-2.5.5 && docker-php-ext-enable xdebug
