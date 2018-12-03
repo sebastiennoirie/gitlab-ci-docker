@@ -40,7 +40,7 @@ RUN apt-get update && \
         git-ftp
 
 # Install the PHP extentions
-RUN docker-php-ext-install mcrypt pdo_mysql zip exif pcntl
+RUN docker-php-ext-install mcrypt pdo_mysql zip exif pcntl bcmath
 
 
 # Install the PHP gd library
