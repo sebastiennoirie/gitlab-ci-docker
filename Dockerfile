@@ -87,7 +87,7 @@ RUN npm install -g gulp
 
 
 # Install stylelint
-RUN npm i stylelint stylelint-config-standard
+RUN npm i stylelint stylelint-config-standard && pwd && ls -lah
 
 # Install PIP
 RUN curl -O https://bootstrap.pypa.io/get-pip.py && python get-pip.py && rm get-pip.py
