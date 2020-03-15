@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:7.3-fpm
 MAINTAINER Sébastien NOIRIE
 
 
@@ -11,9 +11,9 @@ RUN apt-get install -y --install-recommends dirmngr
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
 
-RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.0.list
-RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+#RUN echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+#RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+RUN curl -sL https://deb.nodesource.com/setup_10.x  | bash -
 
 RUN apt-get install -y nodejs
 
@@ -25,12 +25,13 @@ RUN apt-get update && \
 #        nodejs \
 #        nodejs-legacy \
         git \
-        libssl1.0.0 \
-        mongodb-org-shell \
+#        libssl1.0.0 \
+#        mongodb-org-shell \
         rsync \
         build-essential \
         libmemcached-dev \
         libz-dev \
+        libzip-dev \
         libpq-dev \
         libjpeg-dev \
 #        libpng12-dev \
@@ -40,12 +41,11 @@ RUN apt-get update && \
         git-ftp
 
 # Install the PHP extentions
-RUN docker-php-ext-install mcrypt pdo_mysql zip exif pcntl bcmath
+RUN docker-php-ext-install pdo_mysql zip exif pcntl bcmath
 
 
 # Install the PHP gd library
 RUN docker-php-ext-configure gd \
-        --enable-gd-native-ttf \
         --with-jpeg-dir=/usr/lib \
         --with-freetype-dir=/usr/include/freetype2 && \
     docker-php-ext-install gd
@@ -58,10 +58,10 @@ RUN docker-php-ext-configure gd \
 RUN docker-php-ext-enable exif
 
 # Install Xdebug
-RUN pecl install xdebug-2.5.5 && docker-php-ext-enable xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 # Install Mongodb
-RUN pecl install mongodb && docker-php-ext-enable mongodb
+#RUN pecl install mongodb && docker-php-ext-enable mongodb
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php
